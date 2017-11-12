@@ -726,7 +726,7 @@
 						<mx:TextInput id="textInputUsuario" width="120" text="danielramirez"/>
 					</mx:FormItem>
 					<mx:FormItem label="Password">
-						<mx:TextInput id="textInputPassword" displayAsPassword="true" width="119" text="danielramirez"/>
+						<mx:TextInput id="textInputPassword" displayAsPassword="true" width="119" text="daniel"/>
 					</mx:FormItem>
 				</mx:Form>
 				<mx:ControlBar horizontalAlign="right">

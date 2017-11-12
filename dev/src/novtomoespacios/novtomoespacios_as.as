@@ -180,9 +180,10 @@ private function fncResultImpTodas(e:Event):void
 
 private function fncConfirmImpactarSeleccionadas(e:CloseEvent):void
 {		
+	Alert.show(_xmlespaciosEnviar);
 	if (e.detail==Alert.OK){			
 		httpDatosS.addEventListener(ResultEvent.RESULT,fncResultImpSelec);
-		//Alert.show(_xmlespaciosEnviar);
+		
 		httpDatosS.send({rutina:"impactar_seleccionadas",xmlNovedades:_xmlespaciosEnviar});
 	}
 }
@@ -253,7 +254,9 @@ private function fncNivelesResult(e:Event):void
 
 private function fncDatosResultU(e:Event):void 
 {		
-	_xmlUsuarios.appendChild(httpDatosU.lastResult.usuarios);				
+	//Alert.show((httpDatosU.lastResult as XML).toXMLString());
+	_xmlUsuarios.appendChild(httpDatosU.lastResult.usuarios);
+	
 }						
 
 private function fncCargarespaciosA(e:Event):void 

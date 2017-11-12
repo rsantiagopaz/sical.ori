@@ -189,7 +189,7 @@ private function fncAgregar(e:Event):void
 			_xmlTitulo.@denomtit = acTitulo.selectedItem.@denominacion;
 			_xmlTitulo.@denomclas = cmbTipoClas.selectedItem.@denominacion;
 			_xmlTitulo.@cod_tipo_clasificacion = cmbTipoClas.selectedItem.@codigo;
-			_xmlTitulo.@origen = acTitulo.selectedItem.@origen;						
+			_xmlTitulo.@origen = acTitulo.selectedItem.@origen;
 			httpDatos.addEventListener(ResultEvent.RESULT,fncResultAdd);				
 			httpDatos.send({rutina:"insert",xmlTitulo:_xmlTitulo.toXMLString(),id_espacio:acEspacio.selectedItem.@id_espacio,
 				id_carrera:acCarrera.selectedItem.@id_carrera});								
@@ -246,6 +246,7 @@ private function fncBuscar(e:Event):void {
 public function fncEliminarTitulo():void
 {
 	var xmlTitulo:XML = (gridTitulos.selectedItem as XML).copy();
+	Alert.show(xmlTitulo.toXMLString());
 	Alert.show("¿Realmente desea Eliminar el Título "+ xmlTitulo.@denomtit+"?", "Confirmar", Alert.OK | Alert.CANCEL, this, fncConfirmEliminarTitulo, null, Alert.OK);		
 }
 
@@ -271,6 +272,7 @@ private function fncResultDel(e:Event):void{
 }		
 	
 private function fncCargarTitulos(e:Event):void {
+	Alert.show((httpTitulos.lastResult.titulos as XMLList)[0].toXMLString()); 
 	_xmlTitulos = <titulos></titulos>;
 	_xmlTitulos.appendChild(httpTitulos.lastResult.titulos);		
 }		
